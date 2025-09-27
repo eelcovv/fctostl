@@ -23,6 +23,7 @@ classifiers = [
 
 
 dependencies = [
+    "typer>=0.19.2",
 ]
 
 [dependency-groups]
