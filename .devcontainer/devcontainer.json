@@ -1,25 +1,32 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-    "name": "fctostl",
-    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
-    "features": {},
+  "name": "fc2stl (FreeCAD)",
+  "build": { "dockerfile": "Dockerfile" },
 
-    // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+  "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 
-    // Configure tool-specific properties.
-    "customizations": {
-        "vscode": {
-            "extensions": ["ms-python.python", "editorconfig.editorconfig"],
-            "settings": {
-                "python.testing.pytestArgs": ["tests"],
-                "python.testing.unittestEnabled": false,
-                "python.testing.pytestEnabled": true,
-                "python.defaultInterpreterPath": "/workspaces/fctostl/.venv/bin/python",
-                "python.testing.pytestPath": "/workspaces/fctostl/.venv/bin/pytest"
-            }
-        }
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "ms-python.black-formatter",
+        "editorconfig.editorconfig"
+      ],
+      "settings": {
+        "python.testing.pytestArgs": ["tests"],
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.defaultInterpreterPath": "/workspaces/fc2stl/.venv/bin/python",
+        "python.testing.pytestPath": "/workspaces/fc2stl/.venv/bin/pytest",
+        "ruff.enable": true,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
     }
+  },
+
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+
+  "features": {}
 }
+
